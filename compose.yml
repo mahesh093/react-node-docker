@@ -1,0 +1,45 @@
+services:
+  reactapp:
+    build: ./reactapp
+    container_name: reactapp_c
+    ports:
+      - '3001:3001'
+    volumes:
+      - './reactapp:/app'
+      - '/app/node_modules'
+    networks:
+      - mynetwork
+    depends_on:
+      - redis
+      - server
+    stdin_open: true
+    tty: true
+  server:
+    build: ./server
+    container_name: server_c
+    ports:
+      - '3000:3000'
+    volumes:
+      - './server:/app'
+    networks:
+      - mynetwork
+    depends_on:
+      - redis
+      - mongo
+  redis:
+    container_name: redis-service
+    image: 'redis:latest'
+    restart: always
+    command: redis-server --save
+    networks:
+      - mynetwork
+  mongo:
+    container_name: mongo
+    image: 'mongo:latest'
+    ports:
+      - '27017:27017'
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+    driver: bridge

@@ -1,0 +1,28 @@
+.container{
+  display: flex;
+  background-color: yellowgreen;
+  height: 100vh; 
+  width: 100vw; 
+}
+.first-part{
+  width: 50%;
+  padding: 1%;
+  background-color: gray;
+}
+.text-box{
+  padding: 1%;
+  margin: 1%;
+  width: 40%;
+  height: 4%;
+}
+
+.btn{
+  padding: 2%;
+}
+
+.second-part{
+  width: 50%;
+  
+  padding: 1%;
+  background-color: blanchedalmond;
+}
