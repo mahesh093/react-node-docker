@@ -18,4 +18,4 @@ COPY . ./
 EXPOSE 3000
 
 # this run time
-CMD [ "npm","start" ]
+CMD [ "node","index" ]
